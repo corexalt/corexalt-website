@@ -2,7 +2,7 @@ import MaxWidthWrapper from "./MaxWidthWrapper"
 
 const Hero = () => {
     return (
-        <section className="mt-[-80px] flex items-center min-h-screen w-full bg-center bg-cover bg-[url('/hero.jpeg')] bg-opacity-40 pt-36 lg:pt-40 pb-36 lg:pb-40 overflow-hidden bg-blend-overlay bg-[#0D215C]">
+        <section className="mt-[-80px] flex items-center min-h-screen w-full bg-center bg-cover bg-[url('/hero.jpeg')] bg-opacity-60 pt-36 lg:pt-40 pb-36 lg:pb-40 overflow-hidden bg-blend-overlay bg-[#0D215C]">
             <MaxWidthWrapper className="mx-36">
                 <div className="flex items-center w-full h-full">
                         <div className="md:max-w-6xl">

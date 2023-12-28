@@ -1,11 +1,18 @@
+import About from '@/components/About'
 import Hero from '@/components/Hero'
-import MaxWidthWrapper from '@/components/MaxWidthWrapper'
-import Image from 'next/image'
+import Events from '@/components/Events'
+import Mentors from '@/components/Mentors'
 
 export default function Home() {
   return (
-    // <MaxWidthWrapper>
-      <Hero />
-    // </MaxWidthWrapper>
+    <> 
+    <Hero />
+   
+    <About />
+
+    <Events />
+
+    <Mentors />
+    </>
   )
 }
