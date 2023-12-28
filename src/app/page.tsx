@@ -1,11 +1,7 @@
-import Hero from '@/components/Hero'
-import MaxWidthWrapper from '@/components/MaxWidthWrapper'
-import Image from 'next/image'
+import Hero from '@/components/shared/Hero'
 
 export default function Home() {
   return (
-    // <MaxWidthWrapper>
       <Hero />
-    // </MaxWidthWrapper>
   )
 }

@@ -51,6 +51,10 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      backgroundImage: {
+        'dotted-pattern': "url('/assets/images/dotted-pattern.png')",
+        'hero-img': "url('/hero.jpeg')",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
