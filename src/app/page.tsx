@@ -1,7 +1,7 @@
-import About from '@/components/About'
-import Hero from '@/components/Hero'
-import Events from '@/components/Events'
-import Mentors from '@/components/Mentors'
+import About from '@/components/shared/About'
+import Hero from '@/components/shared/Hero'
+import Events from '@/components/shared/Events'
+import Mentors from '@/components/shared/Mentors'
 
 export default function Home() {
   return (

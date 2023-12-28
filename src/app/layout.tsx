@@ -1,10 +1,14 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import './globals.css'
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/shared/Navbar'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins'
+})
 
 export const metadata: Metadata = {
   title: 'Corexalt',
@@ -17,14 +21,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body className={cn("h-full font-sans relative antialiased", inter.className)}>
-        <main className='min-h-screen relative flex flex-col'>
+    <html lang="en">
+      <body className={cn("min-h-screen bg-background font-sans antialiased", poppins.variable)}>
+        <Navbar />
+        { children }
+        {/* <main className='min-h-screen relative flex flex-col'>
           <div className='flex-grow flex-1'>
             <Navbar />
             {children}
           </div>
-        </main>
+        </main> */}
       </body>
     </html>
   )
