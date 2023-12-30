@@ -5,6 +5,7 @@ import Events from '@/components/shared/Events'
 import Mentors from '@/components/shared/Mentors'
 import Partners from '@/components/shared/Partners'
 import Services from '@/components/shared/Services'
+import Footer from '@/components/shared/Footer'
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
     <Mentors />
     </>
       <ContactForm />
+
+      <Footer/>
     </>
   )
 }

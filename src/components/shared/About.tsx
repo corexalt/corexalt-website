@@ -3,13 +3,14 @@
 const About = () => {
     return (
         
-        <section className="w-full h-full min-h-[300px] pb-6 bg-blue-950 flex-col justify-start items-start gap-2.5 inline-flex">
-            <div className="mt-10 flex-col justify-start items-center gap-[20px] flex">
-           
-                <h2 className="text-center text-white text-4xl font-semibold font-['Poppins'] leading-[44px]">About</h2>
-                
-                <p className="w-full px-[50px] text-center text-white font-normal font-['Poppins'] leading-[40px]">Lörem ipsum kros erat av kölungar bebäligen huruvida tåd. Tell. Konera sper, och trare kror såbelt. Val setapp begt vining. Ol fanedade har mikropynde därför att terangen. Biojåd desusk semibel divis. Diamugt krokros. </p>
-               
+        <section className="w-full h-full min-h-[400px] bg-blue-950 flex-col justify-center items-center gap-2.5 inline-flex">
+            <div className="px-20 py-20 sm:max-w-[1500px] flex-col justify-center items-center gap-[20px] flex">
+                <h2 className="text-center pb-2 text-white text-4xl font-semibold font-['Poppins']">About</h2>
+                <p className="w-full text-center text-white text-lg font-thin font-['Poppins'] leading-[35px]">
+                Lörem ipsum kanat eugt krost inte koss i lad poning än dysk. Odåliga miprede: bepaledes har tås då hexasa gydaras, sped astrol. Hexaling nyligt regen. 
+                Dekande provalens, pas intralöbel löfagon mide seminöktigt dotisk: alltså mytosocial i tredolöbel. Fagubel makros. Lökenera pons sått tåbände presm divaren dekateren. 
+                Ladade intranat och trere prera därför att öhäliga ponde. Presase turat dosm, plaskap. Megatotal fant i paser prelar dess enmatisk. Du kan vara drabbad. 
+                </p>
             </div>
         </section>
        
