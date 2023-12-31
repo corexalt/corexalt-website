@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "../ui/textarea";
+import { sendEmail } from "@/lib/send-email";
 
 const contactFormSchema = z.object({
     name: z.string().min(1).max(50),
@@ -25,6 +26,12 @@ const contactFormSchema = z.object({
         message: "Message must not be longer than 150 characters"
     })
 })
+
+export type FormData = {
+    name: string,
+    email: string,
+    message: string
+}
 
 export function ContactForm() {
     const form = useForm<z.infer<typeof contactFormSchema>>({
@@ -37,7 +44,7 @@ export function ContactForm() {
     })
 
     function onSubmit(values: z.infer<typeof contactFormSchema>) {
-        console.log(values);
+        sendEmail(values);
     }
 
     return (
@@ -87,7 +94,7 @@ export function ContactForm() {
                         name="message"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel className="text-white">Bio</FormLabel>
+                            <FormLabel className="text-white">Message</FormLabel>
                             <FormControl>
                                 <Textarea
                                 placeholder="Enter your message"

@@ -15,6 +15,9 @@ const Navbar = () => {
                         height={45}
                         alt="Corexalt logo" 
                     />
+                    <span>
+                        Corexalt
+                    </span>
                 </Link>
                 <nav className="md:flex-between hidden gap-12 font-semibold">
                     <Link href="/">
