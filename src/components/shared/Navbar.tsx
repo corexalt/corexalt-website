@@ -6,15 +6,17 @@ import Image from "next/image"
 const Navbar = () => {
     return (
         <header className="h-20 top-8 z-10 w-full bg-transparent">
-            <div className="wrapper flex-between">
-                <Link href="/" className="w-36">
+            <div className="wrapper inline-flex flex-between justify-center items-center">
+                <Link href="/" className="w-16 md:w-24 grid grid-cols-2 items-center">
                     {/* <Icons.logo height={45} width={127} /> */}
                     <Image 
-                        src="/vercel.svg"
-                        width={127}
-                        height={45}
+                        src="/logo_white.svg"
+                        width={35}
+                        height={25}
                         alt="Corexalt logo" 
+                        className="md:w-40"
                     />
+                    <span className="text-white md:text-2xl font-medium font-['Poppins'] justify-center items-center">orexalt</span>
                 </Link>
                 <nav className="md:flex-between hidden gap-12 font-semibold">
                     <Link href="/">
