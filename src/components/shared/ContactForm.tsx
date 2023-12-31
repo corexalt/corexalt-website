@@ -41,10 +41,10 @@ export function ContactForm() {
     }
 
     return (
-        <section className="flex-center bg-[#0D215C] pt-2 lg:pt-4 pb-18 lg:pb-20">
+        <section className="w-full justify-center items-center flex-center bg-blue-950 py-20 font-['Poppins']">
             <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-1/3 flex flex-col gap-5">
-                <div className="wrapper flex flex-col gap-5">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-3/4 lg:w-1/3 flex flex-col gap-5">
+                <div className="w-full flex flex-col gap-5">
                     <h2 className="text-white text-center h2-medium">Contact Us</h2>
                     <FormField
                         control={form.control}
