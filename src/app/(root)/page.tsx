@@ -10,22 +10,13 @@ import Footer from '@/components/shared/Footer'
 export default function Home() {
   return (
     <> 
-    <>
-    <Hero />
-   
-    <Partners/>
-
-    <About />
-
-    <Services/>
-
-    <Events />
-
-    <Mentors />
-    </>
+      <Hero />
+      <Partners/>
+      <About />
+      <Services/>
+      <Events />
+      <Mentors />
       <ContactForm />
-
-      <Footer/>
     </>
   )
 }

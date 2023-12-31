@@ -7,10 +7,10 @@ const Footer = () => {
         <section className="w-full min-h-[300px] flex-center py-5 bg-blue-950 flex-col justify-items-stretch inline-flex font-['Poppins']">
             <div className="2xl:w-[1400px] flex-col  gap-10 grid grid-flow-cols-1 md:grid-cols-3">
                 <div className="flex-col items-center gap-6 inline-flex">
-                    <div className="justify-start items-center sm:items-start inline-flex">
+                    <div className="justify-start items-center inline-flex">
                         <div className="text-white text-3xl font-medium font-['Poppins']">Corexalt</div>
                     </div>
-                    <div className="flex-col sm:items-start items-center justify-center gap-2 flex">
+                    <div className="flex-col items-center justify-center gap-2 flex">
                         <div className="text-slate-50 text-sm font-normal font-['Poppins'] leading-tight">Copyright © 2020 Nexcent ltd.</div>
                         <div className="text-slate-50 text-sm font-normal font-['Poppins'] leading-tight">All rights reserved</div>
                     </div>

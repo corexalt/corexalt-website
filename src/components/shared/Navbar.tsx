@@ -2,6 +2,8 @@ import Link from "next/link"
 import MaxWidthWrapper from "./MaxWidthWrapper"
 import Icons from "./Icons"
 import Image from "next/image"
+import { Button } from "../ui/button"
+import { UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
 
 const Navbar = () => {
     return (
@@ -36,16 +38,16 @@ const Navbar = () => {
                     </Link>
                 </nav>
                 <div className="flex items-center gap-2.5">
-                    <div>
-                        <Link href="/">
-                            <span>Events</span>
-                        </Link>
-                    </div>
-                    <div>
-                        <Link href="/">
-                            <span>Contact</span>
-                        </Link>
-                    </div>
+                    <SignedIn>
+                        <UserButton afterSignOutUrl="/" />
+                    </SignedIn>
+                    <SignedOut>
+                        <Button asChild className="rounded-full bg-[#F2FF5F] text-[#394149]" size={"lg"}>
+                            <Link href="/sign-in">
+                                Login
+                            </Link>
+                        </Button>
+                    </SignedOut>
                 </div>
             </div>
         </header>

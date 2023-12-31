@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import './globals.css'
 import Navbar from '@/components/shared/Navbar'
+import { ClerkProvider } from '@clerk/nextjs'
 
 const poppins = Poppins({ 
   subsets: ['latin'],
@@ -21,17 +22,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={cn("min-h-screen bg-background font-sans antialiased", poppins.variable)}>
-        <Navbar />
-        { children }
-        {/* <main className='min-h-screen relative flex flex-col'>
-          <div className='flex-grow flex-1'>
-            <Navbar />
-            {children}
-          </div>
-        </main> */}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={cn("min-h-screen bg-background font-sans antialiased", poppins.variable)}>
+          { children }
+          {/* <main className='min-h-screen relative flex flex-col'>
+            <div className='flex-grow flex-1'>
+              <Navbar />
+              {children}
+            </div>
+          </main> */}
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
