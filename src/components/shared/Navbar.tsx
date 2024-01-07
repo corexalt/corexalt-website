@@ -4,6 +4,9 @@ import Icons from "./Icons"
 import Image from "next/image"
 import { Button } from "../ui/button"
 import { UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import { DrawerTrigger } from "../ui/drawer"
+import MobileNav from "./MobileNav"
+import NavItems from "./NavItems"
 
 const Navbar = () => {
     return (
@@ -21,34 +24,12 @@ const Navbar = () => {
                     <span className="text-white md:text-2xl font-medium font-['Poppins'] justify-center items-center">orexalt</span>
                 </Link>
                 <nav className="md:flex-between hidden gap-12 font-semibold">
-                    <Link href="/">
-                        <span className="text-white text-base font-medium font-['Poppins'] leading-normal">Home</span>
-                    </Link>
-                    <Link href="/">
-                        <span className="text-white text-base font-medium font-['Poppins'] leading-normal">About</span>
-                    </Link>
-                    <Link href="/">
-                        <span className="text-white text-base font-medium font-['Poppins'] leading-normal">Services</span>
-                    </Link>
-                    <Link href="/">
-                        <span className="text-white text-base font-medium font-['Poppins'] leading-normal">Events</span>
-                    </Link>
-                    <Link href="/">
-                        <span className="text-white text-base font-medium font-['Poppins'] leading-normal">Contact</span>
-                    </Link>
+                    <NavItems />
                 </nav>
-                <div className="flex items-center gap-2.5">
-                    <SignedIn>
-                        <UserButton afterSignOutUrl="/" />
-                    </SignedIn>
-                    <SignedOut>
-                        <Button asChild className="rounded-full bg-[#F2FF5F] text-[#394149]" size={"lg"}>
-                            <Link href="/sign-in">
-                                Login
-                            </Link>
-                        </Button>
-                    </SignedOut>
-                </div>
+                <MobileNav />
+                {/* <div className="hidden flex items-center gap-2.5">
+                    
+                </div> */}
             </div>
         </header>
     )
