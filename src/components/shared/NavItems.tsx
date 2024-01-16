@@ -7,48 +7,29 @@ import Link from "next/link"
 const NavLinks = [
     {
         label: "Home",
-        route: "/"
+        path: "/"
     },
     {
         label: "About",
-        route: "/#about"
+        path: "/#about"
     },
     {
         label: "Services",
-        route: "/#services"
+        path: "/#services"
     },
     {
         label: "Events",
-        route: "/#events"
+        path: "/#events"
     },
     {
         label: "Mentors",
-        route: "/#mentors"
+        path: "/#mentors"
     },
     {
         label: "Contact Us",
-        route: "/#contactUs"
+        path: "/#contactUs"
     }
 ]
-
-{/* <Link href="/">
-                        <span className="text-white text-base font-medium font-['Poppins'] leading-normal">Home</span>
-                    </Link>
-                    <Link href="/">
-                        <span className="text-white text-base font-medium font-['Poppins'] leading-normal">About</span>
-                    </Link>
-                    <Link href="/">
-                        <span className="text-white text-base font-medium font-['Poppins'] leading-normal">Services</span>
-                    </Link>
-                    <Link href="/">
-                        <span className="text-white text-base font-medium font-['Poppins'] leading-normal">Events</span>
-                    </Link>
-                    <Link href="/">
-                        <span className="text-white text-base font-medium font-['Poppins'] leading-normal">Mentors</span>
-                    </Link>
-                    <Link href="/">
-                        <span className="text-white text-base font-medium font-['Poppins'] leading-normal">Contact</span>
-                    </Link> */}
 
 const NavItems = () => {
   return (
@@ -57,9 +38,9 @@ const NavItems = () => {
             NavLinks.map((link) => {
                 return (
                     <li 
-                        key={ link.label }
+                        key={ link.path }
                     >
-                        <Link href={ link.route }>
+                        <Link href={ link.path }>
                             <span className="text-white text-base font-medium font-['Poppins'] leading-normal">{ link.label }</span>
                         </Link>
                     </li>
