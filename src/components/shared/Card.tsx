@@ -7,7 +7,7 @@ export type CardProps = {
     amount: number;
 }
 
-export default function(props: CardProps) {
+export default function Card(props: CardProps) {
   return (
     <CardContent>
         <div className="flex justify-between gap-2">
