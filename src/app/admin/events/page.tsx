@@ -23,7 +23,7 @@ const page = () => {
             className="max-w-sm"
           />
           <Button variant="outline" className="ml-auto">
-            <Link href="create">
+            <Link href="/admin/events/create">
               <span>Create Event</span>
             </Link>
           </Button>
