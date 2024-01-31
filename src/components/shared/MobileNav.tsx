@@ -21,10 +21,15 @@ const MobileNav = () => {
             </SheetTrigger>
             <SheetContent className="md:hidden flex flex-col gap-6 bg-blend-overlay bg-[#0D215C]">
                     <Image 
-                        src="/logo_white.svg"
-                        width={35}
-                        height={25}
-                        alt="Corexalt logo" 
+                        alt="Corexalt logo"
+                        className="w-36 h-36" 
+                        src="/corexalt_typo.svg"
+                        width="50"
+                        height="50"
+                        style={{
+                          aspectRatio: "16/9",
+                          objectFit: "contain",
+                        }}
                     />
                 <Separator />
                     <NavItems />
