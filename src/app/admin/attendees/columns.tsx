@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { ColumnDef } from "@tanstack/react-table"
-import { AttendeeSchema } from "@/shared/schemas/AttendeeSchema";
+import { AttendeeSchema } from "@/shared/types/attendee";
 
 export const AttendeesColumns: ColumnDef<z.infer<typeof AttendeeSchema>>[] = [
     {

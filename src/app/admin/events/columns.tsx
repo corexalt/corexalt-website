@@ -1,4 +1,4 @@
-import { EventSchema } from "@/shared/schemas/EventSchema";
+import { EventSchema } from "@/shared/types";
 import { z } from "zod";
 import { ColumnDef } from "@tanstack/react-table"
 
