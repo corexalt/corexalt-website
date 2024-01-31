@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { ColumnDef } from "@tanstack/react-table"
-import { MentorSchema } from "@/shared/schemas/MentorSchema";
+import { MentorSchema } from "@/shared/types";
 
 export const MentorsColumns: ColumnDef<z.infer<typeof MentorSchema>>[] = [
     {
