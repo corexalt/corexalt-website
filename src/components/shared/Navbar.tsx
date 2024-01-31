@@ -3,7 +3,6 @@ import MaxWidthWrapper from "./MaxWidthWrapper"
 import Icons from "./Icons"
 import Image from "next/image"
 import { Button } from "../ui/button"
-import { UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import { DrawerTrigger } from "../ui/drawer"
 import MobileNav from "./MobileNav"
 import NavItems from "./NavItems"
