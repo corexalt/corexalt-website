@@ -6,7 +6,7 @@ import Navbar from '@/components/shared/Navbar'
 
 const poppins = Poppins({ 
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['100','200','300','400', '500', '600', '700'],
   variable: '--font-poppins'
 })
 
@@ -21,17 +21,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={cn("min-h-screen bg-background font-sans antialiased", poppins.variable)}>
-        <Navbar />
-        { children }
-        {/* <main className='min-h-screen relative flex flex-col'>
-          <div className='flex-grow flex-1'>
-            <Navbar />
-            {children}
-          </div>
-        </main> */}
-      </body>
-    </html>
+      <html lang="en">
+        <body className={cn("min-h-screen bg-background font-sans antialiased", poppins.variable)}>
+          { children }
+          {/* <main className='min-h-screen relative flex flex-col'>
+            <div className='flex-grow flex-1'>
+              <Navbar />
+              {children}
+            </div>
+          </main> */}
+        </body>
+      </html>
   )
 }

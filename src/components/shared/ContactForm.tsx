@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "../ui/textarea";
+import { sendEmail } from "@/lib/send-email";
 
 const contactFormSchema = z.object({
     name: z.string().min(1).max(50),
@@ -25,6 +26,12 @@ const contactFormSchema = z.object({
         message: "Message must not be longer than 150 characters"
     })
 })
+
+export type FormData = {
+    name: string,
+    email: string,
+    message: string
+}
 
 export function ContactForm() {
     const form = useForm<z.infer<typeof contactFormSchema>>({
@@ -37,14 +44,14 @@ export function ContactForm() {
     })
 
     function onSubmit(values: z.infer<typeof contactFormSchema>) {
-        console.log(values);
+        sendEmail(values);
     }
 
     return (
-        <section className="flex-center bg-[#0D215C] pt-2 lg:pt-4 pb-18 lg:pb-20">
+        <section className="w-full justify-center items-center flex-center bg-blue-950 py-20 font-['Poppins']">
             <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-1/3 flex flex-col gap-5">
-                <div className="wrapper flex flex-col gap-5">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-3/4 lg:w-1/3 flex flex-col gap-5">
+                <div className="w-full flex flex-col gap-5">
                     <h2 className="text-white text-center h2-medium">Contact Us</h2>
                     <FormField
                         control={form.control}
@@ -87,7 +94,7 @@ export function ContactForm() {
                         name="message"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel className="text-white">Bio</FormLabel>
+                            <FormLabel className="text-white">Message</FormLabel>
                             <FormControl>
                                 <Textarea
                                 placeholder="Enter your message"
