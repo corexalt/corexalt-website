@@ -3,16 +3,154 @@ import { EventsColumns } from "./columns"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import React from "react"
 
 const data = [
   {
-    name: "something",
+    // id: "3u1reuv4",
+    title: "something",
     host: "Bobby and Ravi",
     description: "Cool event",
     imageUrl: "google.com",
-    date: "10 Dec 2024"
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-02-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv4",
+    title: "something",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-05-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv4",
+    title: "something",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-01-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv4",
+    title: "something",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-01-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv4",
+    title: "something",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-01-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv4",
+    title: "something",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-01-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv4",
+    title: "something",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-01-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv4",
+    title: "something",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-01-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv4",
+    title: "something",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-01-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv4",
+    title: "something",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-01-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv4",
+    title: "something",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-01-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv1",
+    title: "abcd",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-01-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
+  },
+  {
+    // id: "3u1reuv2",
+    title: "dbashd",
+    host: "Bobby and Ravi",
+    description: "Cool event",
+    imageUrl: "google.com",
+    location: "Jakarta",
+    url: "google.com",
+    startDate: new Date(Date.parse("2022-01-01")),
+    endDate: new Date(Date.parse("2022-01-01")), 
   }
 ]
+
 
 const page = () => {
     return (
@@ -28,7 +166,7 @@ const page = () => {
             </Link>
           </Button>
         </div>
-        {/* <DataTable columns={ EventsColumns } data={ data } /> */}
+        <DataTable columns={ EventsColumns } data={ data } />
       </section>
     )
   }
