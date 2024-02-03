@@ -79,6 +79,25 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "infinite-scroll": "infinite-scroll 25s linear infinite",
       },
+      screens: {
+        'mdList': {'max': '1050px'},
+        'smList': {'max': '767px', 'min': '435px'},
+        'xsList': {'max': '556px'},
+      //   '2xl': {'max': '1535px'},
+      //   // => @media (max-width: 1535px) { ... }
+  
+      //   'xl': {'max': '1279px'},
+      //   // => @media (max-width: 1279px) { ... }
+  
+      //   'lg': {'max': '1023px'},
+      //   // => @media (max-width: 1023px) { ... }
+  
+      //   'md': {'max': '767px'},
+      //   // => @media (max-width: 767px) { ... }
+  
+      //   'sm': {'max': '639px'},
+      //   // => @media (max-width: 639px) { ... }
+      }
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
