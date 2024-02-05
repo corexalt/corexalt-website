@@ -1,12 +1,12 @@
 'use client'
-import { EventSchema } from "@/shared/types";
+import { Event } from "@/shared/types";
 import { z } from "zod";
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import { CaretSortIcon, DotsHorizontalIcon} from "@radix-ui/react-icons";
 
-export const EventsColumns: ColumnDef<z.infer<typeof EventSchema>>[] = [
+export const EventsColumns: ColumnDef<Event>[] = [
     {
         accessorKey: "title",
         header:  ({ column }) => {

@@ -1,9 +1,8 @@
-import { EventSchema } from "@/shared/types";
+import { Event } from "@/shared/types";
 import { Button } from "../ui/button";
 import { CarouselItem } from "../ui/carousel";
-import { z } from "zod";
 
-export default function EventCardItem({ event }: { event: z.infer<typeof EventSchema> }) {
+export default function EventCardItem({ event }: { event: Event }) {
     return (<CarouselItem className="md:basis-1/2 lg:basis-1/3">
       <div className="bg-white rounded-lg flex flex-col justify-center md:max-w-[400px]">
         <img
