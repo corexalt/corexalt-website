@@ -16,9 +16,9 @@ const Events = () => {
           <Carousel className="w-full pb-10 max-w-[1300px] justify-center items-center sm:inline-flex rounded-xl">
             <CarouselContent>
               {
-                getEventData.length > 0 ? getEventData.map((event) => {
+                getEventData.length > 0 ? getEventData.map(( event ) => {
                   return (
-                    <EventCardItem event={event} />
+                    <EventCardItem key={ event.id } event={ event } />
                   )
                 }) : <></>
               }

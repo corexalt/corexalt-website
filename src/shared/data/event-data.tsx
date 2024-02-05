@@ -1,9 +1,8 @@
-import { z } from "zod";
-import { EventSchema } from "../types";
+import { Event } from "../types";
 
-const getEventData:z.infer<typeof EventSchema>[]= [
+const getEventData: Event[]= [
     {
-      // id: 0,
+      id: "0",
       title: "Material Design 1.0 Gets a Mixed Response",
       host: "Bobby and Ravi",
       description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -14,7 +13,7 @@ const getEventData:z.infer<typeof EventSchema>[]= [
       endDate: new Date(Date.parse("2022-02-01")), 
     },
     {
-      // id: 1,
+      id: "1",
       title: "Material Design 2.0 Gets a Mixed Response",
       host: "Bobby and Ravi",
       description: "Cool event",
@@ -25,7 +24,7 @@ const getEventData:z.infer<typeof EventSchema>[]= [
       endDate: new Date(Date.parse("2022-03-01")), 
     },
     {
-      // id: 2,
+      id: "2",
       title: "Material Design 3.0 Gets a Mixed Response",
       host: "Bobby and Ravi",
       description: "Cool event",
@@ -36,7 +35,7 @@ const getEventData:z.infer<typeof EventSchema>[]= [
       endDate: new Date(Date.parse("2022-03-01")), 
     },
     {
-      // id: 3,
+      id: "3",
       title: "Material Design 4.0 Gets a Mixed Response",
       host: "Bobby and Ravi",
       description: "Cool event",
