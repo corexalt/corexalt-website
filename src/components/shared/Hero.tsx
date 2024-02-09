@@ -6,7 +6,7 @@ const Hero = () => {
             <div className="wrapper">
                 <div className="flex-center w-full h-full">
                         <div className="md:max-w-6xl">
-                            <h1 className="text-4xl md:text-6xl font-semibold font-['Poppins'] text-white"><span className="text-white"> Your future starts <span className="text-[#F2FF5F]">from within.</span></span></h1>
+                            <h1 className="text-4xl md:text-6xl font-semibold font-['Poppins'] text-white"><span className="text-white">Your future starts <span className="text-[#F2FF5F]">from within.</span></span></h1>
                         </div>
                 </div>
             </div>
