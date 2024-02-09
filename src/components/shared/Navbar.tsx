@@ -20,7 +20,7 @@ const Navbar = () => {
                         height={50}
                         className="md:w-40"
                     />
-                    {/* <span className="text-white md:text-2xl font-medium font-['Poppins'] justify-center items-center">orexalt</span> */}
+                    {/* <span className="text-white md:text-2xl font-medium  justify-center items-center">orexalt</span> */}
                 </Link>
                 <nav className="md:flex-between hidden gap-12 font-semibold">
                     <NavItems />

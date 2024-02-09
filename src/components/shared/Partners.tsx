@@ -6,7 +6,7 @@ const Partners = () => {
         
         <main className="relative min-h-[300px] flex flex-col justify-start bg-gradient-to-r from-[#F2FF5F] to-white overflow-hidden">
         <div className="w-full max-w-5xl mx-auto px-4 md:px-6">
-        <h2 className="text-center align-top text-blue-950 text-4xl font-semibold font-['Poppins'] py-12">Our Partners</h2>
+        <h2 className="text-center align-top text-blue-950 text-4xl font-semibold  py-12">Our Partners</h2>
           <div className="text-center">
             {/* Logo Carousel animation */}
             <div x-data="{}" x-init="$nextTick(() => {

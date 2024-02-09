@@ -7,7 +7,7 @@ export default function EventsPage() {
         <section className="mt-[-80px] flex-center min-h-screen w-full bg-fixed pt-36 lg:pt-40 pb-36 lg:pb-40 overflow-hidden bg-[#0D215C]">
             <div className="wrapper">
                 <div className="flex flex-center w-full flex-col">
-                    <a href="/events" className="pb-10 text-center text-white text-4xl font-semibold font-['Poppins']">Events</a>
+                    <a href="/events" className="pb-10 text-center text-white text-4xl font-semibold ">Events</a>
                     <div className="flex flex-col flex-center gap-5">
 
                     {
