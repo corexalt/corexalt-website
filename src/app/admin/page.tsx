@@ -1,6 +1,9 @@
 import Card, { CardProps } from "@/components/shared/Card"
 import PageTitle from "@/components/shared/PageTitle"
 import { CalendarIcon, GroupIcon, UsersIcon } from 'lucide-react'
+import { createClient } from "@supabase/supabase-js";
+import { supabase } from '@/lib/initSupabase';
+
 
 const cardData: Array<CardProps> = [
     {
@@ -21,6 +24,7 @@ const cardData: Array<CardProps> = [
 ];
 
 const page = () => {
+
   return (
     <section className="flex flex-col gap-5 w-full">
       {/* <> */}
@@ -35,9 +39,20 @@ const page = () => {
           />
         ))}
       </div>
+      <div>
+        <h1> {getCountries()} </h1>
+      </div>
       {/* </> */}
     </section>
   )
+}
+
+export async function getCountries() {
+  
+  const { data: countries } = await supabase.from("countries").select('*')
+  .order('name', {ascending:true});
+
+  return <pre>{JSON.stringify(countries, null, 2)}</pre>
 }
 
 export default page
