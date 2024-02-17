@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import getEventData from "@/shared/data/event-data";
 import { CalendarClock, CalendarCheck } from "lucide-react";
 import Link from "next/link";
+import style from "../../../../styles/events/EventDetail.module.css"
+import { CalendarIcon, SewingPinFilledIcon } from "@radix-ui/react-icons";
 
 const EmptyEvent = () => {
     return (
@@ -28,58 +30,54 @@ const EventDetailPage = ({ params } : {params: { eventId : number }}) => {
     }
     return (
         <section className="mt-[-80px] w-full flex flex-col justify-center antialiased bg-blue-950 text-gray-200 min-h-screen">
-            <div className="max-w-6xl mx-auto p-4 sm:px-6 h-full">
-
-                <article className="max-w-sm mx-auto md:max-w-none grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-start mt-[100px]">
-                    <div className="flex flex-col">
-                        <a className="relative block group mt-[35px]" href="#0">
-                            <div className="absolute inset-0 bg-gray-600 hidden md:block transform md:translate-y-2 md:translate-x-4 xl:translate-y-4 xl:translate-x-8 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out pointer-events-none" aria-hidden="true"></div>
-                            <figure className="relative h-0 pb-[56.25%] md:pb-[75%] lg:pb-[56.25%] overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out">
-                                <img className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" src={event.imageUrl} alt="image" width="540" height="303" />
-                            </figure>
-                        </a>
-                        <Alert className="mt-[70px]">
-                          <CalendarClock className="h-4 w-4" />
-                          <AlertTitle>Start</AlertTitle>
-                          <AlertDescription>
-                            {new Date(event.startDate).toDateString()}
-                          </AlertDescription>
-                        </Alert>
-                        <Alert className="mt-2">
-                          <CalendarCheck className="h-4 w-4" />
-                          <AlertTitle>End</AlertTitle>
-                          <AlertDescription>
-                            {new Date(event.endDate).toDateString()}
-                          </AlertDescription>
-                        </Alert>
-                    </div>
+            <div className={style.header}>
+                <div className={style.header_img_cont}>
+                    <img src={event.imageUrl} alt="event" />
+                </div>
+                <div className={style.header_title}>
+                    <h2>{event.title}</h2>
+                    {/* <p>{event.location}</p> */}
                     <div>
-                        <header>
-                            <div className="mb-3">
-                                <ul className="flex flex-wrap text-xs font-medium -m-1">
-                                    <li className="m-1">
-                                        {/* <a className="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out" href="#0">{new Date(event.startDate).toTimeString()}</a> */}
-                                    </li>
-                                    <li className="m-1">
-                                        {/* <a className="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out" href="#0">{new Date(event.endDate).toTimeString()}</a> */}
-                                    </li>
-                                </ul>
-                            </div>
-                            <h3 className="text-2xl lg:text-3xl font-bold leading-tight mb-2">
-                                <a className="hover:text-gray-100 transition duration-150 ease-in-out" href="#0">{event.title}</a>
-                            </h3>
-                        </header>
-                        <footer className="flex items-center mt-4 mb-8">
-                            <div>
-                                <span className="font-medium text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out">{event.location}</span>
-                                <span className="text-gray-700"> - </span>
-                                <span className="text-gray-500">{new Date(event.endDate).toTimeString()}</span>
-                            </div>
-                        </footer>
-                        <p className="text-lg text-gray-400 flex-grow">{event.description}</p>
+                        <Button className="bg-[#F2FF5F] text-gray-900 mt-2" >Join Event</Button>
                     </div>
-                </article>    
+                </div>
             </div>
+           <div className={style.container}>
+                <div className={style.left_sect}>
+                    <div className={style.right_sect_card}>
+                        <h2>Description</h2>
+                        <p>{event.description}</p>
+                    </div>
+                </div>
+                <div className={style.right_sect}>
+                    <div className={style.schedule_card}>
+                        <div className={style.schedule_card_date}>
+                            <div>
+                                <div className={style.card_date_title}>
+                                    <SewingPinFilledIcon className="mt-1 h-4 w-4"  />
+                                    <h3>{event.location}</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div className={style.card_date_title}>
+                                    <CalendarIcon className="mt-1 h-4 w-4"  />
+                                    <h3>Start Date</h3>
+                                </div>
+                                <h3>{event.startDate.toUTCString()}</h3>
+                            </div>
+                            <div>
+                                <div className={style.card_date_title}>
+                                    <CalendarIcon className="mt-1 h-4 w-4"  />
+                                    <h3>End Date</h3>
+                                </div>
+                                <h3>{event.endDate.toUTCString()}</h3>
+                            </div>
+                        </div>
+                        {/* <div className={style.schedule_card_location}><h3>{event.location}</h3></div> */}
+                    </div>
+                </div>
+           </div>
+           <div className={style.sticky_event}></div>
         </section>
     );
 }
