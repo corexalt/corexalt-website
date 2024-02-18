@@ -1,5 +1,5 @@
 // import AuthForm from "@/components/shared/AuthForm"
-import AuthForm from "@/components/shared/auth-form";
+import AuthForm from "@/components/shared/AuthForm";
 
 export default function page() {
   return (
