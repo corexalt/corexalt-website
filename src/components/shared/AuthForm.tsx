@@ -30,7 +30,13 @@ const AuthForm = () => {
           options: {
             // set this to false if you do not want the user to be automatically signed up
             shouldCreateUser: true,
-            emailRedirectTo: 'http://localhost:3000/',
+            emailRedirectTo: 'http://localhost:3000',
+            data:{
+              first_name: form.getValues("firstName"),
+              last_name: form.getValues("lastName"),
+              phone_number: form.getValues("phoneNumber"),
+              role_type: "attendees"
+            }
           },
         })
 
@@ -106,17 +112,19 @@ const AuthForm = () => {
                 </div>
         
                 <div className="flex flex-col gap-5 md:flex-row justify-center">
-                  <Button 
+                  <Button
+                    type="submit"
+                    onClick={signInWithEmail}>Test
+                  </Button>
+                  {/* <Button 
                     type="submit"
                     size="sm"
                     disabled={form.formState.isSubmitting}
                     className="button w-1/2"
-                    onClick={signInWithEmail}
                   >
                     {form.formState.isSubmitting ? (
                       'Submitting...'
-                    ): "Sign Up" }</Button>
-
+                    ): "Sign Up" }</Button> */}
                 </div>
               </form>
             </Form>
