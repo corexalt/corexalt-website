@@ -10,6 +10,8 @@ import {
 import useZodForm from "@/lib/form";
 import { AdminSchema } from "@/shared/types/admin";
 import { supabase } from "@/lib/initSupabase";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation'
 
 interface FormData {
   firstName: string;
@@ -19,24 +21,46 @@ interface FormData {
 }
 
 const AdminRegistration = () => {
-    
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+    const router = useRouter()
+
     const form = useZodForm({
         schema: AdminSchema
       })
 
-      async function adminLogin() {
-        const response = await supabase.auth.signInWithPassword({
-          email: form.getValues("email"),
-          password: form.getValues("password"),
-        })
+    const handleLogin = async(e:any) => {
+        e.preventDefault();
 
-      }
+        try {
+          const {data,error} = await supabase.auth.signInWithPassword({
+            email,
+            password,
+          });
+    
+          if (error) {
+
+            throw error;
+          }
+          else{
+            setError(null);
+
+            router.push('/admin')
+          }
+         
+        } catch (error:any) {
+          setError(error.message || 'An error occurred during login.');
+        }
+
+    }
 
       return (
         <Card className="max-w-[800px] p-8 pt-12 mx-auto shadow-lg shadow-gray-400/20">
           <CardContent>
             <Form {...form}>
-              <form className="flex flex-col gap-5">
+              <form onSubmit={handleLogin} className="flex flex-col gap-5">
               <div className="flex flex-col gap-5 md:flex-row">
                   <FormField
                     control={form.control}
@@ -45,7 +69,7 @@ const AdminRegistration = () => {
                       <FormItem className="w-full">
                         <FormLabel>Email</FormLabel>
                         <FormControl>
-                          <Input placeholder="youremail@domain.com" {...field} className="input-field" />
+                          <Input placeholder="youremail@domain.com" {...field} type= "email" className="input-field" value={email} onChange={(e) => setEmail(e.target.value)}/>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -61,7 +85,7 @@ const AdminRegistration = () => {
                       <FormItem className="w-full">
                         <FormLabel>Password</FormLabel>
                         <FormControl>
-                          <Input placeholder="" {...field} className="input-field" />
+                          <Input placeholder="" {...field} className="input-field" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -71,10 +95,10 @@ const AdminRegistration = () => {
         
                 <div className="flex flex-col gap-5 md:flex-row justify-center">
                   <Button
-                    type="submit"
-                    onClick={adminLogin}>Login
+                    type="submit">Login
                   </Button>
                 </div>
+                {error}
               </form>
             </Form>
           </CardContent>

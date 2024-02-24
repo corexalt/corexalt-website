@@ -1,9 +1,9 @@
 import AdminLogin from "@/components/shared/AdminLogin";
 
-
 const page = () => {
+
     return (
-        <AdminLogin/>
+        <AdminLogin />
     )
 }
 
