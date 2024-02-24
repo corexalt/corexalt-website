@@ -8,7 +8,7 @@ import {
     CardContent
   } from "@/components/ui/card";
 import useZodForm from "@/lib/form";
-import { AttendeeSchema } from "@/shared/types";
+import { AdminSchema } from "@/shared/types/admin";
 import { supabase } from "@/lib/initSupabase";
 
 interface FormData {
@@ -18,28 +18,50 @@ interface FormData {
   phoneNumber: string;
 }
 
-const AuthForm = () => {
+const AdminRegistration = () => {
     
     const form = useZodForm({
-        schema: AttendeeSchema
+        schema: AdminSchema
       })
 
-      async function signInWithEmail() {
-        const { data, error } = await supabase.auth.signInWithOtp({
-          email: form.getValues("email"),
-          options: {
-            // set this to false if you do not want the user to be automatically signed up
-            shouldCreateUser: true,
-            emailRedirectTo: 'http://localhost:3000',
-            data:{
-              first_name: form.getValues("firstName"),
-              last_name: form.getValues("lastName"),
-              phone_number: form.getValues("phoneNumber"),
-              role_type: "attendees"
-            }
-          },
-        })
+    //   async function signInWithEmail() {
+    //     const { data, error } = await supabase.auth.signInWithOtp({
+    //       email: form.getValues("email"),
+    //       options: {
+    //         // set this to false if you do not want the user to be automatically signed up
+    //         shouldCreateUser: true,
+    //         emailRedirectTo: 'http://localhost:3000',
+    //         data:{
+    //           first_name: form.getValues("firstName"),
+    //           last_name: form.getValues("lastName"),
+    //           phone_number: form.getValues("phoneNumber"),
+    //           role_type: "attendees"
+    //         }
+    //       },
+    //     })
 
+    //   }
+
+      async function adminSignUp() {
+        // const { data, error } = await supabase.auth.signUp({
+        //   email: form.getValues("email"),
+        //   password: form.getValues("password"),
+        //   options: {
+        //     emailRedirectTo: 'http://localhost:3000',
+        //     data:{
+        //       first_name: form.getValues("firstName"),
+        //       last_name: form.getValues("lastName"),
+        //       phone_number: form.getValues("phoneNumber"),
+        //       role_type: "admin"
+        //     }
+        //   }
+        
+        // })
+
+        // alert(data.user)
+        // alert(data.session)
+        // alert(error?.message)
+        // alert(error?.status)
       }
 
       return (
@@ -47,6 +69,39 @@ const AuthForm = () => {
           <CardContent>
             <Form {...form}>
               <form className="flex flex-col gap-5">
+              <div className="flex flex-col gap-5 md:flex-row">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input placeholder="youremail@domain.com" {...field} className="input-field" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <div className="flex flex-col gap-5 md:flex-row">
+                  <FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel>Password</FormLabel>
+                        <FormControl>
+                          <Input placeholder="" {...field} className="input-field" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+
                 <div className="flex flex-col gap-5 md:flex-row">
                   <FormField
                     control={form.control}
@@ -82,22 +137,6 @@ const AuthForm = () => {
                 <div className="flex flex-col gap-5 md:flex-row">
                   <FormField
                     control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input placeholder="youremail@domain.com" {...field} className="input-field" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <div className="flex flex-col gap-5 md:flex-row">
-                  <FormField
-                    control={form.control}
                     name="phoneNumber"
                     render={({ field }) => (
                       <FormItem className="w-full">
@@ -114,7 +153,7 @@ const AuthForm = () => {
                 <div className="flex flex-col gap-5 md:flex-row justify-center">
                   <Button
                     type="submit"
-                    onClick={signInWithEmail}>Test
+                    onClick={adminSignUp}>Register
                   </Button>
                 </div>
               </form>
@@ -124,4 +163,4 @@ const AuthForm = () => {
         )
 }
 
-export default AuthForm;
+export default AdminRegistration;
