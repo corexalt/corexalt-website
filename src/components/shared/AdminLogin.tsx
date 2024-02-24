@@ -24,44 +24,12 @@ const AdminRegistration = () => {
         schema: AdminSchema
       })
 
-    //   async function signInWithEmail() {
-    //     const { data, error } = await supabase.auth.signInWithOtp({
-    //       email: form.getValues("email"),
-    //       options: {
-    //         // set this to false if you do not want the user to be automatically signed up
-    //         shouldCreateUser: true,
-    //         emailRedirectTo: 'http://localhost:3000',
-    //         data:{
-    //           first_name: form.getValues("firstName"),
-    //           last_name: form.getValues("lastName"),
-    //           phone_number: form.getValues("phoneNumber"),
-    //           role_type: "attendees"
-    //         }
-    //       },
-    //     })
-
-    //   }
-
       async function adminLogin() {
-        // const { data, error } = await supabase.auth.signUp({
-        //   email: form.getValues("email"),
-        //   password: form.getValues("password"),
-        //   options: {
-        //     emailRedirectTo: 'http://localhost:3000',
-        //     data:{
-        //       first_name: form.getValues("firstName"),
-        //       last_name: form.getValues("lastName"),
-        //       phone_number: form.getValues("phoneNumber"),
-        //       role_type: "admin"
-        //     }
-        //   }
-        
-        // })
+        const response = await supabase.auth.signInWithPassword({
+          email: form.getValues("email"),
+          password: form.getValues("password"),
+        })
 
-        // alert(data.user)
-        // alert(data.session)
-        // alert(error?.message)
-        // alert(error?.status)
       }
 
       return (
