@@ -8,8 +8,12 @@ export const EventsColumns: ColumnDef<z.infer<typeof EventSchema>>[] = [
         header: "Name"
     },
     {
-        accessorKey: "dateTime",
-        header: "Date and Time"
+        accessorKey: "startDateTime",
+        header: "Starting Date and Time"
+    },
+    {
+        accessorKey: "endDateTime",
+        header: "Ending Date and Time"
     },
     {
         accessorKey: "hosts",

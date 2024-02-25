@@ -41,12 +41,6 @@ const AdminRegistration = () => {
         
         })
 
-        alert(String(response.data)+String(response.error))
-
-        // alert(data.user)
-        // alert(data.session)
-        // alert(error?.message)
-        // alert(error?.status)
       }
 
       return (
