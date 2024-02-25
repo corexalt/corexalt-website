@@ -22,6 +22,8 @@ import {
   CardContent,
   CardDescription
 } from "@/components/ui/card"
+import { supabase } from "@/lib/initSupabase"
+import { useRouter } from 'next/navigation'
 
 type EventFormProps = {
   type: "Create" | "Edit";
@@ -37,11 +39,40 @@ const EventForm = ({ type } : EventFormProps) => {
       }
     })
 
+    const router = useRouter()
+
+    const handleSubmission = async(e:any) => {
+      e.preventDefault();
+
+      if(type === 'Create'){
+        try {
+          const { error } = await supabase
+          .from('event')
+          .insert({ 
+            name:form.getValues('title'),
+            description:form.getValues('description'),
+            hosts:form.getValues('host'),
+            // startDateTime:form.getValues('startDate'),
+            // endDateTime:form.getValues('endDate')
+           })        
+  
+           router.push('/admin/events')
+        } catch (error) {
+          
+        }
+
+      }
+      else if(type === 'Edit'){
+
+      }
+
+  }
+
     return (
       <Card className="max-w-[800px] p-8 pt-12 mx-auto shadow-lg shadow-gray-400/20">
         <CardContent>
           <Form {...form}>
-            <form className="flex flex-col gap-5">
+            <form onSubmit={handleSubmission} className="flex flex-col gap-5">
               <div className="flex flex-col gap-5 md:flex-row">
                 <FormField
                   control={form.control}
