@@ -41,7 +41,7 @@ const NavItems = () => {
                         key={ link.path }
                     >
                         <Link href={ link.path }>
-                            <span className="text-white text-base font-medium font-['Poppins'] leading-normal">{ link.label }</span>
+                            <span className="text-white text-base font-medium  leading-normal">{ link.label }</span>
                         </Link>
                     </li>
                 )

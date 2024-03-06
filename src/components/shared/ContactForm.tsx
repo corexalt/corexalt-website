@@ -48,7 +48,7 @@ export function ContactForm() {
     }
 
     return (
-        <section className="w-full justify-center items-center flex-center bg-blue-950 py-20 font-['Poppins']">
+        <section className="w-full justify-center items-center flex-center bg-blue-950 py-20 ">
             <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-3/4 lg:w-1/3 flex flex-col gap-5">
                 <div className="w-full flex flex-col gap-5">
