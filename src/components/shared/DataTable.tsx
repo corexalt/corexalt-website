@@ -19,6 +19,7 @@ import {
 import { Button } from "@/components/ui/button"
 
 import Link from "next/link"
+import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -33,23 +34,47 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
 
   if(value==="event"){
+
+    const cellArray:any = Object.values(data);
+
+    // const actionColumn: ColumnDef<TData, TValue> = {
+    //   id: "actionColumn",
+    //   header: "Action Column",
+    //   cell: ({ cell,row }) => (
+    //     <div className="flex">
+    //       <Button variant="outline">
+    //         <Link href="/admin/events/edit">
+    //           <span>{cellArray[0]}</span>
+    //         </Link>
+    //       </Button>
+    //       <Button variant="outline" className="ml-1">
+    //         <Link href="/admin/events/delete">
+    //           <span>Delete</span>
+    //         </Link>
+    //       </Button>
+    //     </div>
+    //   ),
+    // };
+
+    const actionColumns: JSX.Element[] = data.map((item:any, index:any) => (
+      <div key={index} className="flex">
+        <Button variant="outline">
+          <Link href={`/admin/events/edit/`}>
+            <span>Edit</span>
+          </Link>
+        </Button>
+        <Button variant="outline" className="ml-1">
+          <Link href={`/admin/events/delete/`}>
+            <span>Delete</span>
+          </Link>
+        </Button>
+      </div>
+    ));
+
     const actionColumn: ColumnDef<TData, TValue> = {
       id: "actionColumn",
       header: "Action Column",
-      cell: ({ cell }) => (
-        <div className="flex">
-          <Button variant="outline">
-            <Link href="/admin/events/edit">
-              <span>Edit</span>
-            </Link>
-          </Button>
-          <Button variant="outline" className="ml-1">
-            <Link href="/admin/events/delete">
-              <span>Delete</span>
-            </Link>
-          </Button>
-        </div>
-      ),
+      cell: ({ cell }) => actionColumns[cell.row.index],
     };
 
     columns = [...columns,actionColumn]
