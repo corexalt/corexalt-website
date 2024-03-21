@@ -58,7 +58,7 @@ const page = () => {
             </Link>
           </Button>
         </div>
-        <DataTable columns={ EventsColumns } data={ events } />
+        <DataTable columns={ EventsColumns } value= {"event"} data={ events } />
       </section>
     )
   }

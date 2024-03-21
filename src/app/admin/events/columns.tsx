@@ -26,8 +26,5 @@ export const EventsColumns: ColumnDef<z.infer<typeof EventSchema>>[] = [
     {
         accessorKey: "imageURL",
         header: "Image url"
-    },
-    {
-        header: "Action"
     }
 ]

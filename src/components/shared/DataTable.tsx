@@ -16,15 +16,45 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
+import { Button } from "@/components/ui/button"
+
+import Link from "next/link"
+
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: any
+  value: any
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  value,
 }: DataTableProps<TData, TValue>) {
+
+  if(value==="event"){
+    const actionColumn: ColumnDef<TData, TValue> = {
+      id: "actionColumn",
+      header: "Action Column",
+      cell: ({ cell }) => (
+        <div className="flex">
+          <Button variant="outline">
+            <Link href="/admin/events/edit">
+              <span>Edit</span>
+            </Link>
+          </Button>
+          <Button variant="outline" className="ml-1">
+            <Link href="/admin/events/delete">
+              <span>Delete</span>
+            </Link>
+          </Button>
+        </div>
+      ),
+    };
+
+    columns = [...columns,actionColumn]
+  }
+
   const table = useReactTable({
     data,
     columns,
