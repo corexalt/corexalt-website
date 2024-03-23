@@ -27,10 +27,11 @@ import { useRouter } from 'next/navigation'
 
 type EventFormProps = {
   type: "Create" | "Edit";
+  formData: any | null;
 }
 
 
-const EventForm = ({ type } : EventFormProps) => {
+const EventForm = ({ type, formData } : EventFormProps) => {
     const form = useZodForm({
       schema: EventSchema,
       defaultValues: {
@@ -63,13 +64,14 @@ const EventForm = ({ type } : EventFormProps) => {
 
       }
       else if(type === 'Edit'){
-
+        
       }
 
   }
 
     return (
       <Card className="max-w-[800px] p-8 pt-12 mx-auto shadow-lg shadow-gray-400/20">
+        {formData}
         <CardContent>
           <Form {...form}>
             <form onSubmit={handleSubmission} className="flex flex-col gap-5">

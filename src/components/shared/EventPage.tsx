@@ -8,15 +8,16 @@ import PageTitle from "@/components/shared/PageTitle";
 type EventPageProps = {
     title: string;
     type: "Create" | "Edit";
+    formData: any;
 }
 
-const EventPage = ( { title, type } : EventPageProps) => {
+const EventPage = ( { title, type, formData } : EventPageProps) => {
     return (
         <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center">
             <PageTitle title={ title } className="text-center" />
 
             <div className="my-12">
-                <EventForm type={ type } />
+                <EventForm type={ type } formData = { formData } />
             </div>
         </section>
     )

@@ -59,12 +59,15 @@ export function DataTable<TData, TValue>({
     const actionColumns: JSX.Element[] = data.map((item:any, index:any) => (
       <div key={index} className="flex">
         <Button variant="outline">
-          <Link href={`/admin/events/edit/`}>
+          <Link href={{
+                  pathname: `/admin/events/edit/`,
+                  query: item
+                }}>
             <span>Edit</span>
           </Link>
         </Button>
         <Button variant="outline" className="ml-1">
-          <Link href={`/admin/events/delete/`}>
+          <Link href={`/admin/events/delete/${item.id}`}>
             <span>Delete</span>
           </Link>
         </Button>
