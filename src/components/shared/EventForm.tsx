@@ -35,7 +35,6 @@ const EventForm = ({ type, formData } : EventFormProps) => {
     const form = useZodForm({
       schema: EventSchema,
       defaultValues: {
-        title: "",
     
       }
     })
@@ -50,7 +49,7 @@ const EventForm = ({ type, formData } : EventFormProps) => {
           const { error } = await supabase
           .from('event')
           .insert({ 
-            name:form.getValues('title'),
+            name:form.getValues('name'),
             description:form.getValues('description'),
             hosts:form.getValues('host'),
             latitude:form.getValues('latitude'),
@@ -68,7 +67,26 @@ const EventForm = ({ type, formData } : EventFormProps) => {
 
       }
       else if(type === 'Edit'){
-        
+        try {
+          const { error } = await supabase
+          .from('event')
+          .update({ 
+            name:form.getValues('name'),
+            description:form.getValues('description'),
+            hosts:form.getValues('host'),
+            latitude:form.getValues('latitude'),
+            longitude:form.getValues('longitude'),
+            imageUrl:form.getValues('imageUrl'),
+            date:form.getValues('date'),
+            // startDateTime:form.getValues('startDate'),
+            // endDateTime:form.getValues('endDate')
+           })
+           .eq('id',formData[0])        
+  
+           router.push('/admin/events')
+        } catch (error) {
+          
+        }
       }
 
   }
@@ -81,11 +99,11 @@ const EventForm = ({ type, formData } : EventFormProps) => {
               <div className="flex flex-col gap-5 md:flex-row">
                 <FormField
                   control={form.control}
-                  name="title"
+                  name="name"
                   render={({ field }) => (
                     <FormItem className="w-full">
                       <FormControl>
-                        <Input placeholder="Event title" {...field} value={type === 'Edit' ? formData[1] : null} className="input-field" />
+                        <Input placeholder="Name" {...field} defaultValue={type === 'Edit' ? formData[1] : null} className="input-field" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -100,7 +118,7 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                     render={({ field }) => (
                       <FormItem className="w-full">
                         <FormControl className="h-72">
-                          <Textarea placeholder="Description" {...field} value={type === 'Edit' ? formData[2] : null} className="textarea rounded-2xl" />
+                          <Textarea placeholder="Description" {...field} defaultValue={type === 'Edit' ? formData[2] : null} className="textarea rounded-2xl" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -131,7 +149,7 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                   render={({ field }) => (
                     <FormItem className="w-full">
                       <FormControl>
-                        <Input placeholder="Hosts" {...field} value={type === 'Edit' ? formData[3] : null} className="input-field" />
+                        <Input placeholder="Hosts" {...field} defaultValue={type === 'Edit' ? formData[3] : null} className="input-field" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -146,7 +164,7 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                   render={({ field }) => (
                     <FormItem className="w-full">
                       <FormControl>
-                        <Input placeholder="Latitude" {...field} value={type === 'Edit' ? formData[4] : null} className="input-field" />
+                        <Input placeholder="Latitude" {...field} defaultValue={type === 'Edit' ? formData[4] : null} className="input-field" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -161,7 +179,7 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                   render={({ field }) => (
                     <FormItem className="w-full">
                       <FormControl>
-                        <Input placeholder="Longitude" {...field} value={type === 'Edit' ? formData[5] : null} className="input-field" />
+                        <Input placeholder="Longitude" {...field} defaultValue={type === 'Edit' ? formData[5] : null} className="input-field" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -292,7 +310,7 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                           <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2 gap-4">
                             <Link />
     
-                            <Input placeholder="imageUrl" {...field} value={type === 'Edit' ? formData[6] : null} className="input-field" />
+                            <Input placeholder="imageUrl" {...field} defaultValue={type === 'Edit' ? formData[6] : null} className="input-field" />
                           </div>
       
                         </FormControl>
