@@ -19,7 +19,8 @@ import {
 import { Button } from "@/components/ui/button"
 
 import Link from "next/link"
-import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react"
+import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode, useState } from "react"
+import { supabase } from "@/lib/initSupabase"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -32,6 +33,47 @@ export function DataTable<TData, TValue>({
   data,
   value,
 }: DataTableProps<TData, TValue>) {
+
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const [selectedId, setSelectedId]:any = useState(null);
+
+    function displayDelete(id:any) {
+        setSelectedId(id)
+        setShowConfirmation(true)
+    }
+
+    const handleDelete = async () => {
+        // Logic to delete the item
+        if(selectedId===null){
+          
+        }
+        else{
+          try {
+            
+            const { error } = await supabase
+              .from('event')
+              .delete()
+              .eq('id', selectedId)
+
+            setSelectedId(null)
+          } catch (error) {
+            
+          }
+        }
+        setShowConfirmation(false);
+        if(selectedId===null){
+          
+        }
+        else{
+          try {
+            
+            window.location.reload();
+          } catch (error) {
+            
+          }
+        }
+    };
 
   if(value==="event"){
 
@@ -66,10 +108,8 @@ export function DataTable<TData, TValue>({
             <span>Edit</span>
           </Link>
         </Button>
-        <Button variant="outline" className="ml-1">
-          <Link href={`/admin/events/delete/${item.id}`}>
-            <span>Delete</span>
-          </Link>
+        <Button variant="outline" className="ml-1" onClick={()=> displayDelete(item.id)}>
+          <span>Delete</span>
         </Button>
       </div>
     ));
@@ -133,6 +173,17 @@ export function DataTable<TData, TValue>({
           )}
         </TableBody>
       </Table>
+            {showConfirmation && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <div className="bg-white p-4 rounded shadow-lg">
+                        <p>Confirm to delete?</p>
+                        <div className="flex justify-center mt-4">
+                            <Button onClick={handleDelete}>Yes</Button>
+                            <Button className="ml-2" onClick={() => setShowConfirmation(false)}>No</Button>
+                        </div>
+                    </div>
+                </div>
+            )}
     </div>
   )
 }
