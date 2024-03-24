@@ -53,6 +53,10 @@ const EventForm = ({ type, formData } : EventFormProps) => {
             name:form.getValues('title'),
             description:form.getValues('description'),
             hosts:form.getValues('host'),
+            latitude:form.getValues('latitude'),
+            longitude:form.getValues('longitude'),
+            imageUrl:form.getValues('imageUrl'),
+            date:form.getValues('date'),
             // startDateTime:form.getValues('startDate'),
             // endDateTime:form.getValues('endDate')
            })        
@@ -71,7 +75,6 @@ const EventForm = ({ type, formData } : EventFormProps) => {
 
     return (
       <Card className="max-w-[800px] p-8 pt-12 mx-auto shadow-lg shadow-gray-400/20">
-        {formData}
         <CardContent>
           <Form {...form}>
             <form onSubmit={handleSubmission} className="flex flex-col gap-5">
@@ -82,7 +85,7 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                   render={({ field }) => (
                     <FormItem className="w-full">
                       <FormControl>
-                        <Input placeholder="Event title" {...field} className="input-field" />
+                        <Input placeholder="Event title" {...field} value={type === 'Edit' ? formData[1] : null} className="input-field" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -97,7 +100,7 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                     render={({ field }) => (
                       <FormItem className="w-full">
                         <FormControl className="h-72">
-                          <Textarea placeholder="Description" {...field} className="textarea rounded-2xl" />
+                          <Textarea placeholder="Description" {...field} value={type === 'Edit' ? formData[2] : null} className="textarea rounded-2xl" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -120,8 +123,53 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                     )}
                   /> */}
               </div>
-      
+
               <div className="flex flex-col gap-5 md:flex-row">
+                <FormField
+                  control={form.control}
+                  name="host"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormControl>
+                        <Input placeholder="Hosts" {...field} value={type === 'Edit' ? formData[3] : null} className="input-field" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <div className="flex flex-col gap-5 md:flex-row">
+                <FormField
+                  control={form.control}
+                  name="latitude"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormControl>
+                        <Input placeholder="Latitude" {...field} value={type === 'Edit' ? formData[4] : null} className="input-field" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <div className="flex flex-col gap-5 md:flex-row">
+                <FormField
+                  control={form.control}
+                  name="longitude"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormControl>
+                        <Input placeholder="Longitude" {...field} value={type === 'Edit' ? formData[5] : null} className="input-field" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+      
+              {/* <div className="flex flex-col gap-5 md:flex-row">
                 <FormField
                     control={form.control}
                     name="location"
@@ -139,15 +187,15 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                       </FormItem>
                     )}
                   />
-              </div>
+              </div> */}
       
               <div className="flex flex-col gap-5 md:flex-row justify-center px-4 py-2 w-full">
                 <FormField
                   control={form.control}
-                  name="startDate"
+                  name="date"
                   render={({ field }) => (
                     <FormItem className="flex flex-col w-full">
-                      <FormLabel>Start Date</FormLabel>
+                      <FormLabel>Date</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
@@ -161,7 +209,7 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                               {field.value ? (
                                 format(field.value, "PPP")
                               ) : (
-                                <span>Pick a start date</span>
+                                <span>Pick a date</span>
                               )}
                               <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                             </Button>
@@ -180,14 +228,15 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                         </PopoverContent>
                       </Popover>
                       <FormDescription>
-                        The start date of the event.
+                        The date of the event.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
+                  defaultValue={type === 'Edit' ? formData[7] : null}
                 />
                 
-                <FormField
+                {/* <FormField
                   control={form.control}
                   name="endDate"
                   render={({ field }) => (
@@ -230,20 +279,20 @@ const EventForm = ({ type, formData } : EventFormProps) => {
                       <FormMessage />
                     </FormItem>
                   )}
-                />
+                /> */}
               </div>
       
               <div className="flex flex-col gap-5 md:flex-row">
                 <FormField
                     control={form.control}
-                    name="url"
+                    name="imageUrl"
                     render={({ field }) => (
                       <FormItem className="w-full">
                         <FormControl>
                           <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2 gap-4">
                             <Link />
     
-                            <Input placeholder="URL" {...field} className="input-field" />
+                            <Input placeholder="imageUrl" {...field} value={type === 'Edit' ? formData[6] : null} className="input-field" />
                           </div>
       
                         </FormControl>
