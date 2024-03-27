@@ -16,6 +16,7 @@ const Layout = ({ children } : { children: React.ReactNode }) => {
     useEffect(() => {
         const getSession = async () => {
         const userSession = await supabase.auth.getSession();
+
         setSession(userSession);
         setLoading(false);
         };
@@ -28,9 +29,11 @@ const Layout = ({ children } : { children: React.ReactNode }) => {
     }
 
     else{
+        
         if(session.data.session===null){
             rout.push('adminAuth/sign-in')
         }
+
     }
 
     return (
