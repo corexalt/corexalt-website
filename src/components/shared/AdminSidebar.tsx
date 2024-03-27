@@ -1,9 +1,26 @@
-import { CalendarIcon, GroupIcon, HomeIcon, UsersIcon } from 'lucide-react'
+'use client';
+
+import { CalendarIcon, Candy, GroupIcon, HomeIcon, UsersIcon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip'
 import Image from 'next/image';
+import { Button } from "@/components/ui/button"
+import { supabase } from '@/lib/initSupabase';
+import { useRouter  } from 'next/navigation'
+import { redirect } from "next/navigation";
+
 const AdminSidebar = () => {
+
+  async function toLogout(){
+    const {error} = await supabase.auth.signOut()
+    // const router = useRouter()
+
+    if(error===null){
+      window.location.reload();
+    }
+  }
+
   return (
     <nav className="relative min-h-screen bg-blue-950 border-r md:w-72 px-4 pb-10">
         <div className="flex flex-col items-start">
@@ -51,6 +68,12 @@ const AdminSidebar = () => {
               <GroupIcon className="w-4 h-4 dark:text-gray-400" />
               <span className="hidden lg:block">Mentors</span>
             </Link>
+            <Button
+              className="flex items-center text-white focus:text-[#F2FF5F] text-sm font-medium md:text-sm hover:bg-[#1e316b] focus:bg-[#1e316b] rounded-lg p-2 mr-20" 
+              onClick={toLogout}
+            >
+              <span className="hidden lg:block">Logout</span>
+            </Button>
           </div>
         </div>
       </nav>

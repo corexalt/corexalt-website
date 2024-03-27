@@ -1,9 +1,12 @@
+"use client"
+
 import Card, { CardProps } from "@/components/shared/Card"
 import PageTitle from "@/components/shared/PageTitle"
 import { CalendarIcon, GroupIcon, UsersIcon } from 'lucide-react'
 import { createClient } from "@supabase/supabase-js";
 import { supabase } from '@/lib/initSupabase';
 import { redirect } from 'next/navigation'
+import { useEffect, useState } from "react";
 
 
 const cardData: Array<CardProps> = [
@@ -24,26 +27,7 @@ const cardData: Array<CardProps> = [
     }
 ];
 
-const page = async () => {
-
-  async function checkAdmin() {
-
-    const response = await supabase.auth.getSession()
-    const sessionStats = response.data
-  
-    return sessionStats;
-  }
-
-  // const adminSession = await checkAdmin()
-
-  // console.log(adminSession.session)
-
-  // if(adminSession.session === null){
-  //   redirect('/adminAuth/sign-in');
-  // }
-  // else{
-  //   console.log("login success")
-  // }
+const page = () => {
 
   return (
     <section className="flex flex-col gap-5 w-full">
@@ -63,5 +47,6 @@ const page = async () => {
     </section>
   )
 }
+
 
 export default page
